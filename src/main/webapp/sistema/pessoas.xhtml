@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/templates/layoutBase.xhtml">
+	<ui:define name="content">
+		<b:container style="margin-top:30px">
+			<p:tabView id="pgcCadastro" widgetVar="pgcCadastro"
+				activeIndex="#{pessoasController.tabActive}" dynamic="true">
+				<p:tab id="pesquisa" title="Pesquisa">
+					<b:form id="fmPesqPessoa" horizontal="true">
+						<p:dataTable id="eventsDT" var="pessoa"
+							value="#{pessoasController.todos}" selectionMode="single"
+							selection="#{pessoasController.pessoa}" rowKey="#{pessoa.pessId}"
+							rows="10" paginator="true"
+							paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15">
+							<p:ajax event="rowSelect" update=":pgcCadastro:fmCadPessoa:cadastroPanel"
+								oncomplete="PF('pgcCadastro').select(1)" />
+							<p:column headerText="nome">
+								<h:outputText value="#{pessoa.pessNome}"
+									onclick="PF('pgcCadastro').select(1)" />
+							</p:column>
+						</p:dataTable>						
+					</b:form>
+				</p:tab>
+				<p:tab id="cadastro" title="Cadastro">
+					<b:form id="fmCadPessoa" horizontal="true">
+						<b:panel id="cadastroPanel">
+							<p:outputLabel value="Código:" for="pessID"/>
+							<h:outputLabel id="pessID" value="#{pessoasController.pessoa.pessId}" />							
+							<b:inputText id="nome" name="nome" label-small-screen="1"
+								small-screen="5" label="Nome:"
+								value="#{pessoasController.pessoa.pessNome}"
+								tooltip="tooltip of the inputText" />
+						</b:panel>
+						<p:toolbar id="tblCadastro">
+							<f:facet name="left">
+								<b:commandButton look="primary"
+									action="#{pessoasController.salvar(pessoasController.pessoa)}"
+									value="Salvar" style="margin-left:3px" />
+								<b:commandButton look="danger"
+									action="#{pessoasController.excluir(pessoasController.pessoa)}"
+									value="Apagar" style="margin-left:3px" />
+								<b:commandButton look="success"
+									action="#{pessoasController.setNovoPessoa()}" value="Novo"
+									update="cadastroPanel" style="margin-left:3px" />
+							</f:facet>
+						</p:toolbar>
+					</b:form>
+				</p:tab>
+			</p:tabView>
+
+		</b:container>
+	</ui:define>
+</ui:composition>
+</html>

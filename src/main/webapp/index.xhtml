@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+<ui:composition template="/templates/layoutBase.xhtml">
+	<ui:define name="header">
+		<b:jumbotron>
+			<b:container>
+				<h1>Seja bem vindo!</h1>
+				<p>Esta é a página inicial do projeto.</p>
+				<p>
+					<a
+						href="login.xhtml"
+						class="btn btn-lg btn-info">Clique para fazer login »</a>
+				</p>
+			</b:container>
+		</b:jumbotron>
+	</ui:define>
+	<ui:define name="content">
+		<b:row>
+			<b:column col-md="4">
+				<h2>Guarde os seus processos</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<b:button outcome="" value="Saiba mais »" />
+				</p>
+			</b:column>
+			<b:column col-md="4">
+				<h2>Acesse em qualquer hora</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<b:button outcome="" value="Saiba mais »" />
+				</p>
+			</b:column>
+			<b:column col-md="4">
+				<h2>Em qualquer dispositivo</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<b:button outcome="" value="Saiba mais »" />
+				</p>
+			</b:column>
+		</b:row>
+		<hr />
+	</ui:define>
+</ui:composition>
+</html>

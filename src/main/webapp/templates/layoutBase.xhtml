@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="carousel.css" />
+	<h:outputScript library="js" name="angular.min.js" />
+</h:head>
+<h:body style="padding-top: 50px; padding-bottom: 20px;">
+	<ui:include src="topMenu.xhtml" />
+	<ui:insert name="header" />
+	<b:container>
+		<ui:insert name="content" />
+		<ui:include src="footer.xhtml" />
+	</b:container>
+</h:body>
+</html>
